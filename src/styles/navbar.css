@@ -1,0 +1,13 @@
+.nav { position: sticky; top: 0; z-index: 50; background: transparent; margin-bottom: -84px; transition: background-color 0.4s, box-shadow 0.4s; }
+.nav.is-solid { background: rgba(20, 19, 15, 0.96); box-shadow: 0 1px 0 rgba(184, 151, 90, 0.3); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 84px; transition: height 0.4s var(--ease); }
+.nav.is-solid .nav__inner { height: 68px; }
+.brand { font-size: 28px; color: var(--ivory); text-decoration: none; letter-spacing: 0.04em; }
+.brand span { color: var(--gold); }
+.nav__links { display: flex; gap: 36px; }
+.nav__link { color: var(--ivory); text-decoration: none; font-size: 14px; padding: 6px 0; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+.nav__link:hover, .nav__link.is-active { color: var(--gold); border-color: var(--gold); }
+.nav__cta { padding: 12px 22px; }
+.nav__saved { color: var(--ivory); text-decoration: none; display: flex; align-items: center; gap: 6px; min-height: 48px; padding: 0 8px; font-size: 14px; }
+.nav__burger { display: none; background: none; border: 0; color: var(--ivory); width: 48px; height: 48px; cursor: pointer; }
+.nav__mobile { display: none; }

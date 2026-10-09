@@ -1,0 +1,25 @@
+/* Shared motion system: micro 150-250ms, standard 300-500ms, cinematic 600-1000ms */
+@keyframes up { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.a1, .a2, .a3, .a5, .a6 { animation: up 0.9s var(--ease) both; }
+.a1 { animation-delay: 0.3s; } .a2 { animation-delay: 0.55s; } .a3 { animation-delay: 0.85s; }
+.a5 { animation-delay: 1.1s; } .a6 { animation-delay: 1.4s; }
+
+.prog { display: none; position: fixed; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform-origin: 0 50%; transform: scaleX(0); z-index: 200; }
+
+/* Scroll reveal (CSS scroll-driven; content is simply visible where unsupported) */
+@supports (animation-timeline: view()) {
+  .prog { display: block; animation: pg linear both; animation-timeline: scroll(root); }
+  @keyframes pg { to { transform: scaleX(1); } }
+  .eyebrow, .h2, .st > *, .ft .wrap { animation: rvu both var(--ease); animation-timeline: view(); animation-range: entry 0% entry 45%; }
+  .rvl { animation: rvl both var(--ease); animation-timeline: view(); animation-range: entry 0% entry 55%; }
+  .rvc { animation: rvc both var(--ease); animation-timeline: view(); animation-range: entry 0% entry 60%; }
+  .st > :nth-child(3n + 2) { animation-range: entry 6% entry 51%; }
+  .st > :nth-child(3n) { animation-range: entry 12% entry 57%; }
+  @keyframes rvu { from { opacity: 0; translate: 0 28px; } }
+  @keyframes rvl { from { opacity: 0; translate: -32px 0; } }
+  @keyframes rvc { from { opacity: 0; clip-path: inset(0 0 35% 0); } to { opacity: 1; clip-path: inset(0); } }
+}
+@keyframes tIn { from { opacity: 0; translate: 0 12px; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
